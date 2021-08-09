@@ -10,3 +10,35 @@ O projeto tem por finalidade auxiliar professores na condução de aulas online.
 
 ## Arquitetura inicial do projeto
 ![Arquitetura](./docs/assets/Arquitetura-Professor-Virtual.png)
+
+
+## Rodando o projeto
+* 1 - Faça uma cópia do arquivo `.env.example` para `.env`
+* 2 - Altere o arquivo `.env` e adicione os dados do seu banco de dados
+* 3 - Rode os comandos listados abaixo:
+    ```php
+    php artisan migrate
+    ```
+
+    ```php
+    php artisan db:seed
+    ```
+
+    ```php
+    php artisan serve
+    ```
+* 4 - Acesse a aplicação no seu browser preferido. Exemplo: `http://localhost:8000`
+
+## Login na aplicação
+
+### Fazendo login com o usuário administrador:
+```bash
+usuário: admin@spv.br
+senha: 123456
+```
+
+### Fazendo login com o usuário de desenvolvimento:
+```bash
+usuário: dev@spv.br
+senha: 123456
+```
