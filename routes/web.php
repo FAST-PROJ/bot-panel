@@ -51,5 +51,5 @@ Route::group(['namespace' => 'App\Http\Controllers\User'], function (){
 });
 
 // Bot Routes
-Route::match(['get', 'post'], '/botman', [BotManController::class, 'handle']);
-Route::get('/botman/tinker', [BotManController::class, 'tinker']);
+Route::match(['get', 'post'], '/bot', [BotManController::class, 'handle']);
+Route::get('/bot/tinker', [BotManController::class, 'tinker'])->name('bot.tinker');

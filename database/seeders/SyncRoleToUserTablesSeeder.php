@@ -17,15 +17,12 @@ class SyncRoleToUserTablesSeeder extends Seeder
 
     private function syncUserToRoles(): void
     {
-        $count = 0;
-        for ($userID = 1; $userID < 1010; $userID++) {
-            $role = User::find(1);
-            if ($role) {
-                $role->roles()->sync([$userID]);
-                $count++;
-            }
-        }
+        $role = User::find(1);
+        $role->roles()->sync([1]);
 
-        $this->command->info("#{$count} Users have been linked to roles!");
+        $role = User::find(2);
+        $role->roles()->sync([2]);
+
+        $this->command->info('Users linked to roles!');
     }
 }

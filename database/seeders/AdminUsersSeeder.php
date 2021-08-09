@@ -19,6 +19,7 @@ class AdminUsersSeeder extends Seeder
             'password' => Hash::make('123456'),
             'avatar' => 'assets/images/default-avatar.png',
             'active' => true,
+            'is_student' => true,
         ]);
 
         User::create([
@@ -27,6 +28,7 @@ class AdminUsersSeeder extends Seeder
             'password' => Hash::make('123456'),
             'avatar' => 'assets/images/default-avatar.png',
             'active' => true,
+            'is_student' => false,
         ]);
 
         $this->command->info('Users dev and admin created');

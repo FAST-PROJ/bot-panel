@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('avatar')->default('assets/images/default-avatar.png');
             $table->boolean('active');
+            $table->boolean('is_student')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

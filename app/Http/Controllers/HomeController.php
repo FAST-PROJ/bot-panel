@@ -2,9 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Carbon\Carbon;
-
 class HomeController extends Controller
 {
     /**
@@ -23,7 +20,7 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {  
-        return view('home');       
+    {
+        return view('home');
     }
 }

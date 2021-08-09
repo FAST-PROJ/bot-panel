@@ -2,11 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use App\Models\Role;
-use App\Models\Permission;
 use Cache;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -18,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'active'
+        'name', 'email', 'password', 'active',
     ];
 
     /**
@@ -29,6 +27,11 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function isStudent(): bool
+    {
+        return (bool) $this->is_student;
+    }
 
     public function roles()
     {
@@ -42,8 +45,8 @@ class User extends Authenticatable
 
     public function hasAnyRoles($roles)
     {
-        if(is_array($roles) || is_object($roles) ) {
-            return !! $roles->intersect($this->roles)->count();
+        if (is_array($roles) || is_object($roles)) {
+            return (bool) $roles->intersect($this->roles)->count();
         }
 
         return $this->roles->contains('name', $roles);
