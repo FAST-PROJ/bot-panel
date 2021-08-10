@@ -1,12 +1,12 @@
 <?php
 
-use App\Http\Controllers\BotManController;
 use App\Http\Controllers\ConfigController;
 use App\Http\Controllers\Error\ErrorController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Profile\ProfileController;
 use App\Http\Controllers\User\RoleController;
 use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\VirtualTeacherController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -55,5 +55,5 @@ Route::group(['namespace' => 'App\Http\Controllers\User'], function () {
 });
 
 // Bot Routes
-Route::match(['get', 'post'], '/botman', [BotManController::class, 'handle']);
-Route::get('/bot/tinker', [BotManController::class, 'tinker'])->name('bot.tinker');
+Route::match(['get', 'post'], '/botman', [VirtualTeacherController::class, 'handle']);
+Route::get('/bot/tinker', [VirtualTeacherController::class, 'tinker'])->name('bot.tinker');

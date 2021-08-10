@@ -1,17 +1,17 @@
 <aside class="main-sidebar">
 	<section class="sidebar">
 		<ul class="sidebar-menu" data-widget="tree">
-			<li class="header" style="color:#fff;"> MAIN MENU <i class="fa fa-level-down"></i></li>
+			<li class="header" style="color:#fff;"> MENU PRINCIPAL <i class="fa fa-level-down"></i></li>
 			<li class="
 						{{ Request::segment(1) === null ? 'active' : null }}
 						{{ Request::segment(1) === 'home' ? 'active' : null }}
 					  ">
-				<a href="{{ route('home') }}" title="Dashboard"><i class="fa fa-dashboard"></i> <span> Dashboard</span></a>
+				<a href="{{ route('home') }}" title="Dashboard"><i class="fa fa-dashboard"></i> <span> DASHBOARD</span></a>
 			</li>
 
             @if (Auth::user()->isStudent())
                 <li class="{{ Request::segment(1) === 'bot' ? 'active' : null }}">
-                    <a href="{{ route('bot.tinker') }}" title="Bot Professor Virtual"><i class="fa fa-android"></i> <span> Bot Professor Virtual</span></a>
+                    <a href="{{ route('bot.tinker') }}" title="Bot Professor Virtual"><i class="fa fa-android"></i> <span> PROFESSOR VIRTUAL</span></a>
                 </li>
 
                 <li class="treeview {{ Request::segment(1) === 'learning' ? 'active menu-open' : null }}">
@@ -37,7 +37,7 @@
 
 			@if(Request::segment(1) === 'profile')
                 <li class="{{ Request::segment(1) === 'profile' ? 'active' : null }}">
-                    <a href="{{ route('profile') }}" title="Profile"><i class="fa fa-user"></i> <span> PROFILE</span></a>
+                    <a href="{{ route('profile') }}" title="Profile"><i class="fa fa-user"></i> <span> MEU PERFIL</span></a>
                 </li>
 			@endif
 
@@ -48,7 +48,7 @@
 				">
 				<a href="#">
 					<i class="fa fa-gear"></i>
-					<span>SETTINGS</span>
+					<span>CONFIGURAÇÕES</span>
 					<span class="pull-right-container">
 						<i class="fa fa-angle-left pull-right"></i>
 					</span>
@@ -57,7 +57,7 @@
 					@if (Auth::user()->can('root-dev', ''))
 						<li class="{{ Request::segment(1) === 'config' && Request::segment(2) === null ? 'active' : null }}">
 							<a href="{{ route('config') }}" title="App Config">
-								<i class="fa fa-gear"></i> <span> Settings App</span>
+								<i class="fa fa-gear"></i> <span> CONFIGURAÇÕES DO APP</span>
 							</a>
 						</li>
 					@endif
@@ -66,7 +66,7 @@
 						{{ Request::segment(1) === 'role' ? 'active' : null }}
 						">
 						<a href="{{ route('user') }}" title="Users">
-							<i class="fa fa-user"></i> <span> Users</span>
+							<i class="fa fa-user"></i> <span> USUÁRIOS</span>
 						</a>
 					</li>
 				</ul>
