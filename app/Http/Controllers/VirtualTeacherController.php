@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Conversations\VirtualTeacher\TeacherConversation;
 use BotMan\BotMan\BotMan;
-use Illuminate\Http\Request;
-use App\Conversations\ExampleConversation;
 
-class BotManController extends Controller
+class VirtualTeacherController extends Controller
 {
     /**
      * Place your BotMan logic here.
@@ -27,11 +26,10 @@ class BotManController extends Controller
     }
 
     /**
-     * Loaded through routes/botman.php
-     * @param  BotMan $bot
+     * Loaded through routes/botman.php.
      */
     public function startConversation(BotMan $bot)
     {
-        $bot->startConversation(new ExampleConversation());
+        $bot->startConversation(new TeacherConversation());
     }
 }
