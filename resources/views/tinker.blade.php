@@ -1,48 +1,53 @@
-<!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+@extends('layouts.AdminLTE.index')
 
-    <title>BotMan Studio</title>
+@section('icon_page', 'android')
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css">
+@section('title', 'Bot Professor Virtual')
 
-    <!-- Styles -->
-    <style>
-        body {
-            font-family: "Source Sans Pro", sans-serif;
-            margin: 0;
-            padding: 0;
-            background: radial-gradient(#57bfc7, #45a6b3);
-        }
+@section('menu_pagina')
 
-        .container {
-            display: flex;
-            height: 100vh;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .content {
-            text-align: center;
-        }
-                
-        #app {
-            position: absolute;
-            bottom: 10px;
-        }
-    </style>
-</head>
-<body>
-<div class="container">
-    <div class="content" id="app">
-        <botman-tinker api-endpoint="/botman"></botman-tinker>
+@section('content')
+    <div class="box box-primary">
+        <div class="box-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="chatbot-container">
+                        <div class="chatbot-content" id="app">
+                            <botman-tinker api-endpoint="/botman"></botman-tinker>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+@endsection
 
-<script src="/js/app.js"></script>
-</body>
-</html>
+<style>
+    .chatbot-container {
+        display: flex;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .chatbot-content {
+        text-align: center;
+    }
+
+    #app {
+        position: absolute;
+        bottom: 10px;
+    }
+
+    .ChatAttachment + label, input.ChatInput {
+        height: 35px !important;
+        border-radius: 10px;
+        border: 1px solid !important;
+        border-color: #3c8dbc !important;
+        padding: 5px 10px 4px 10px !important;
+    }
+
+    .chatbot-container {
+        height: 75vh !important;
+    }
+</style>

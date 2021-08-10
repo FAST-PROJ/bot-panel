@@ -19,6 +19,16 @@ class Config extends Model
         'title_login',
         'layout',
         'skin',
-        'favicon'
+        'favicon',
     ];
+
+    public function hasCaptcha(): bool
+    {
+        return (bool) $this->captcha;
+    }
+
+    public function hasImageLogin(): bool
+    {
+        return (bool) $this->image_login;
+    }
 }

@@ -2,11 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Config;
 use App\Http\Requests\ConfigRequest;
-use Gate;
-use App;
+use App\Models\Config;
 
 class ConfigController extends Controller
 {
@@ -16,31 +13,31 @@ class ConfigController extends Controller
 
         $this->authorize('root-dev', $config);
 
-    	return view('config.index',compact('config'));
+        return view('config.index', compact('config'));
     }
 
-    public function update(ConfigRequest $request, $id)
+    public function update(ConfigRequest $request, int $id)
     {
         $this->authorize('root-dev', Config::class);
 
-    	Config::find($id)->update($request->all());
+        Config::find($id)->update($request->all());
 
-    	if($request->file('path_image_login')){
-    		$file = $request->file('path_image_login');
-    		$ext  = $file->guessClientExtension();
-            $path = $file->move("img/config", "logo.{$ext}");
-    		Config::where('id', 1)->update(['path_image_login' => "assets/images/logo.{$ext}"]);
-    	}
+        if ($request->file('path_image_login')) {
+            $file = $request->file('path_image_login');
+            $ext = $file->guessClientExtension();
+            $path = $file->move('img/config', "logo.{$ext}");
+            Config::where('id', 1)->update(['path_image_login' => "assets/images/logo.{$ext}"]);
+        }
 
-    	if($request->file('favicon')){
-    		$file = $request->file('favicon');
-    		$ext  = $file->guessClientExtension();
-            $path = $file->move("img/config", "favicon.{$ext}");
-    		Config::where('id', 1)->update(['favicon' => "assets/images/favicon.{$ext}"]);
-    	}
+        if ($request->file('favicon')) {
+            $file = $request->file('favicon');
+            $ext = $file->guessClientExtension();
+            $path = $file->move('img/config', "favicon.{$ext}");
+            Config::where('id', 1)->update(['favicon' => "assets/images/favicon.{$ext}"]);
+        }
 
         $this->flashMessage('check', 'Application settings updated successfully!', 'success');
 
-    	return redirect()->route('config');
+        return redirect()->route('config');
     }
 }

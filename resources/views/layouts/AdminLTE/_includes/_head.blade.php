@@ -1,7 +1,8 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <title>
-        {!! \App\Models\Config::find(1)->app_name_abv !!} | @yield('title')
+        {!! \App\Models\Config::find(1)->short_app_name !!} | @yield('title')
 </title>
 <link rel="shortcut icon" href="{{ asset(\App\Models\Config::find(1)->favicon) }}" type="image/x-icon"/>
 <!-- Tell the browser to be responsive to screen width -->
@@ -32,11 +33,10 @@
 <!-- Google Font -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 <!-- CSS Custom -->
-<link rel="stylesheet" href="{{ asset('assets/custom/style.css') }}">
+<!-- <link rel="stylesheet" href="{{ asset('css/app.css') }}"> -->
 <!-- jQuery 3 -->
 <script src="{{ asset('assets/adminlte/bower_components/jquery/dist/jquery.min.js') }}"></script>
-<!-- MAskMoney -->
-<script src="{{ asset('assets/plugins/maskMoney/jquery.maskMoney.min.js') }}"></script>
+
 <style>
         .link_menu_page{ color:#222d32; }
         .caixa-alta { text-transform:uppercase; }
@@ -58,6 +58,6 @@
                         format: "dd/mm/yyyy"
                 };
         });
-</script>       
+</script>
 
 @yield('layout_css')

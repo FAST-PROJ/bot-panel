@@ -18,13 +18,13 @@
     <body class="hold-transition login-page">
         <div id="box-login-personalize">
             <div class="login-logo">
-                
-                @if(\App\Models\Config::find(1)->img_login == 'T')
-                    <img src="{{ asset(\App\Models\Config::find(1)->caminho_img_login) }}" width="{{ \App\Models\Config::find(1)->tamanho_img_login }}%"/>
+
+                @if(\App\Models\Config::find(1)->hasImageLogin())
+                    <img src="{{ asset(\App\Models\Config::find(1)->path_image_login) }}" width="{{ \App\Models\Config::find(1)->size_image_login }}%"/>
                     <br/>
                 @endif
-               
-                {!! \App\Models\Config::find(1)->titulo_login !!}             
+
+                {!! \App\Models\Config::find(1)->title_login !!}
             </div>
             <div class="login-box-body">
                 <p class="login-box-msg">Sign in to start your session</p>
@@ -49,27 +49,27 @@
                             </span>
                         @endif
                     </div>
-                    <div class="row">  
-                        <!--<div class="col-xs-8">
+                    <div class="row">
+                        <div class="col-xs-8">
                           <div class="checkbox icheck">
                             <label>
                               <input name="remember" type="checkbox" {{ old('remember') ? 'checked' : '' }}> Remember me
                             </label>
                           </div>
-                        </div>-->
+                        </div>
                         <div class="col-xs-12">
                           <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
-                        </div>  
+                        </div>
                         <br/><br/><br/>
-                        <!--<div class="col-xs-12">
+                        <div class="col-xs-12">
                             <center>
                                 <a href="{{ route('password.request') }}">Forgot password?</a>
                                 <br/>
                                 <a href="{{ route('register') }}">Sign up</a>
-                            </center> -->                     
+                            </center>
                         </div>
-                    </div>                  
-                </form> 
+                    </div>
+                </form>
             </div>
         </div>
 

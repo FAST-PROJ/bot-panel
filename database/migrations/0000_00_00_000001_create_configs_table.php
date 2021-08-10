@@ -16,10 +16,10 @@ class CreateConfigsTable extends Migration
             $table->string('long_app_name');
             $table->string('short_app_name');
             $table->string('app_slogan')->nullable();
-            $table->string('captcha');
+            $table->boolean('captcha')->default(0);
             $table->string('datasitekey')->nullable();
             $table->string('recaptcha_secret')->nullable();
-            $table->string('image_login');
+            $table->boolean('image_login')->default(1);
             $table->string('path_image_login')->nullable();
             $table->integer('size_image_login')->nullable();
             $table->string('title_login');
