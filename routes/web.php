@@ -48,6 +48,10 @@ Route::group(['namespace' => 'App\Http\Controllers\User'], function () {
     Route::put('/role/update/{id}', [RoleController::class, 'update'])->name('role.update');
     Route::get('/role/show/{id}', [RoleController::class, 'show'])->name('role.show');
     Route::get('/role/destroy/{id}', [RoleController::class, 'destroy'])->name('role.destroy');
+
+    // Estudante
+    Route::get('/my/courses', [UserController::class, 'index'])->name('student.courses');
+    Route::get('/my/learning/plan', [UserController::class, 'index'])->name('student.learning.plan');
 });
 
 // Bot Routes

@@ -10,11 +10,28 @@
 			</li>
 
             @if (Auth::user()->isStudent())
-                <li class="
-                            {{ Request::segment(1) === null ? 'active' : null }}
-                            {{ Request::segment(1) === 'home' ? 'active' : null }}
-                        ">
-                    <a href="{{ route('bot.tinker') }}" title="Bot Professor Virtual"><i class="fa fa-robot"></i> <span> Bot Professor Virtual</span></a>
+                <li class="{{ Request::segment(1) === 'bot' ? 'active' : null }}">
+                    <a href="{{ route('bot.tinker') }}" title="Bot Professor Virtual"><i class="fa fa-android"></i> <span> Bot Professor Virtual</span></a>
+                </li>
+
+                <li class="treeview {{ Request::segment(1) === 'learning' ? 'active menu-open' : null }}">
+                    <a href="#">
+                        <i class="fa fa-graduation-cap"></i>
+                        <span>MEU APRENDIZADO</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li class="{{ Request::segment(1) === 'courses' ? 'active' : null }}">
+                            <a href="{{ route('student.courses') }}" title="Meus Cursos"><i class="fa fa-book"></i> <span> MEUS CURSOS</span></a>
+                        </li>
+                        <li class="{{ Request::segment(1) === 'learning' ? 'active' : null }}">
+                            <a href="{{ route('student.learning.plan') }}" title="Planos de Estudo"><i class="fa fa-calendar"></i>
+                                <span> PLANOS DE ESTUDO</span>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
             @endif
 
