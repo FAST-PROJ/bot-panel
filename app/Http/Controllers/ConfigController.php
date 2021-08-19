@@ -11,14 +11,14 @@ class ConfigController extends Controller
     {
         $config = Config::find(1);
 
-        $this->authorize('root-dev', $config);
+        $this->authorize('root', $config);
 
         return view('config.index', compact('config'));
     }
 
     public function update(ConfigRequest $request, int $id)
     {
-        $this->authorize('root-dev', Config::class);
+        $this->authorize('root', Config::class);
 
         Config::find($id)->update($request->all());
 
