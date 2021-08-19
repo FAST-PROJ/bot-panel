@@ -31,11 +31,7 @@
 		<script src="{{ asset('assets/adminlte/bower_components/fastclick/lib/fastclick.js') }}"></script>
 		<!-- adminlte App -->
 		<script src="{{ asset('assets/adminlte/dist/js/adminlte.min.js') }}"></script>
-		<!-- adminlte dashboard demo (This is only for demo purposes) -->
-		<script src="{{ asset('assets/adminlte/dist/js/pages/dashboard.js') }}"></script>
-		<!-- adminlte for demo purposes -->
-		<script src="{{ asset('assets/adminlte/dist/js/demo.js') }}"></script>
-		<!-- Select2 -->
+        <!-- Select2 -->
 		<script src="{{ asset('assets/adminlte/bower_components/select2/dist/js/select2.full.min.js') }}"></script>
 		<!-- Mask -->
         <script src="{{ asset('js/app.js') }}"></script>
@@ -45,7 +41,5 @@
 	        $('#flash_message').delay(3000).fadeOut();
 	      });
 	    </script>
-
-
 
 		@yield('layout_js')

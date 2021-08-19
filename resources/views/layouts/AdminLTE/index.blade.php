@@ -6,15 +6,16 @@
     <body class="hold-transition skin-{{ \App\Models\Config::find(1)->skin }} {{ \App\Models\Config::find(1)->layout }} sidebar-mini">
         <div class="wrapper">
 
-            @include('layouts.AdminLTE._includes._menu_superior')
+            @include('layouts.AdminLTE._includes._header_menu')
 
-
-            @include('layouts.AdminLTE._includes._menu_lateral')
+            @if(Auth::check())
+                @include('layouts.AdminLTE._includes._sidebar_menu')
+            @endif
 
             <div class="content-wrapper">
-                <nav class="navbar navbar-static-top" id="menu_sup_corpo" style="background-color:#d2d6de; margin-bottom:0; padding-bottom:0;navbar-header.a:color:#fff;">
+                <nav class="navbar navbar-static-top">
                     <div class="navbar-header">
-                        <a href="" class="navbar-brand" id="" style="color:#222d32;'"><i class="fa fa-@yield('icon_page')"></i> @yield('title')</a>
+                        <a href="" class="navbar-brand" id="" style="color:#222d32;"><i class="fa fa-@yield('icon_page')"></i> @yield('title')</a>
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-2" aria-expanded="false">
                             <i class="fa fa-bars"></i>
                         </button>

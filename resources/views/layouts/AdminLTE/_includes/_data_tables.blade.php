@@ -17,7 +17,7 @@
 	<script src="{{ asset('assets/plugins/dataTables/js/buttons.html5.min.js') }}"></script>
 	<script src="{{ asset('assets/plugins/dataTables/js/buttons.print.min.js') }}"></script>
 	<script src="{{ asset('assets/plugins/dataTables/js/buttons.colVis.min.js') }}"></script>
-	<script>		
+	<script>
 		$(function (){
 			var table = $('#tabelapadrao').DataTable({
 				"order": [[ 0, "desc" ]],
@@ -46,11 +46,8 @@
 					}
 				},
 				responsive: true,
-  
-           		"lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "Todos"]], 
- 
-	            //"dom": 'Bfrtip',
-	            //"buttons": ['pageLength', 'copy', 'excel', 'pdf', 'colvis',],
+
+           		"lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "Todos"]],
 			});
 		});
 	</script>

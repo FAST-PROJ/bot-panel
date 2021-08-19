@@ -11,9 +11,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-
         @include('layouts.AdminLTE._includes._head')
-
     </head>
     <body class="hold-transition login-page">
         <div id="box-login-personalize">
@@ -27,7 +25,6 @@
                 {!! \App\Models\Config::find(1)->title_login !!}
             </div>
             <div class="login-box-body">
-                <p class="login-box-msg">Sign in to start your session</p>
                 <form  method="POST" action="{{ route('login') }}">
                     @csrf
                     <div class="form-group has-feedback">
@@ -50,22 +47,15 @@
                         @endif
                     </div>
                     <div class="row">
-                        <div class="col-xs-8">
-                          <div class="checkbox icheck">
-                            <label>
-                              <input name="remember" type="checkbox" {{ old('remember') ? 'checked' : '' }}> Remember me
-                            </label>
-                          </div>
-                        </div>
                         <div class="col-xs-12">
-                          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                          <button type="submit" class="btn btn-primary btn-block btn-flat">Entrar</button>
                         </div>
                         <br/><br/><br/>
                         <div class="col-xs-12">
                             <center>
-                                <a href="{{ route('password.request') }}">Forgot password?</a>
+                                <a href="{{ route('password.request') }}">Esqueceu sua senha?</a>
                                 <br/>
-                                <a href="{{ route('register') }}">Sign up</a>
+                                <a href="{{ route('register') }}">Criar conta</a>
                             </center>
                         </div>
                     </div>
@@ -77,9 +67,9 @@
         <script>
           $(function () {
             $('input').iCheck({
-              checkboxClass: 'icheckbox_square-blue',
-              radioClass: 'iradio_square-blue',
-              increaseArea: '20%'
+                checkboxClass: 'icheckbox_square-blue',
+                radioClass: 'iradio_square-blue',
+                increaseArea: '20%'
             });
           });
         </script>

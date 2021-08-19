@@ -11,9 +11,9 @@
 		<div class="box box-primary">
 			<div class="box-body box-profile">
 				@if(file_exists(Auth::user()->avatar))
-	              <img src="{{ asset(Auth::user()->avatar) }}" class="profile-user-img img-responsive img-circle">
+	                <img src="{{ asset(Auth::user()->avatar) }}" class="profile-user-img img-responsive img-circle">
 	            @else
-	              <img src="{{ asset('assets/images/default-avatar.png') }}" class="profile-user-img img-responsive img-circle">
+	                <img src="{{ asset('assets/images/default-avatar.png') }}" class="profile-user-img img-responsive img-circle">
 	            @endif
 				<h3 class="profile-username text-center">
 					@if(Auth::user('name'))
@@ -31,7 +31,7 @@
 	<div class="col-md-9">
 		<div class="nav-tabs-custom">
 			<ul class="nav nav-tabs">
-				<li class="active"><a href="#profile" data-toggle="tab"><i class="fa fa-fw fa-user"></i> Profiel</a></li>
+				<li class="active"><a href="#profile" data-toggle="tab"><i class="fa fa-fw fa-user"></i> Profile</a></li>
 				<li><a href="#settings" data-toggle="tab"><i class="fa fa-fw fa-key"></i> Password</a></li>
 				<li><a href="#avatar" data-toggle="tab"><i class="fa fa-fw fa-file-photo-o"></i> Avatar</a></li>
 			</ul>

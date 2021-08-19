@@ -37,27 +37,4 @@
 <!-- jQuery 3 -->
 <script src="{{ asset('assets/adminlte/bower_components/jquery/dist/jquery.min.js') }}"></script>
 
-<style>
-        .link_menu_page{ color:#222d32; }
-        .caixa-alta { text-transform:uppercase; }
-        .caixa-baixa { text-transform:lowercase; }
-        .input-text-center{ text-align:center; }
-</style>
-
-<script>
-        $(function(){
-                $.fn.datepicker.dates['pt-br'] = {
-                        days: ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"],
-                        daysShort: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"],
-                        daysMin: ["Do", "Se", "Te", "Qu", "Qu", "Se", "Sa"],
-                        months: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
-                        monthsShort: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
-                        today: "Hoje",
-                        monthsTitle: "Meses",
-                        clear: "Limpar",
-                        format: "dd/mm/yyyy"
-                };
-        });
-</script>
-
 @yield('layout_css')
