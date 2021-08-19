@@ -13,13 +13,13 @@ class RoleTablesSeeder extends Seeder
     public function run(): void
     {
         Role::create([
-            'name' => 'Developer',
-            'label' => 'System Developer',
+            'name' => 'Administrators',
+            'label' => 'System Administrators',
         ]);
 
         Role::create([
-            'name' => 'Administrators',
-            'label' => 'System Administrators',
+            'name' => 'Student',
+            'label' => 'Students',
         ]);
 
         $this->command->info('Roles created!');

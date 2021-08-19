@@ -14,15 +14,6 @@ class AdminUsersSeeder extends Seeder
     public function run(): void
     {
         User::create([
-            'email' => 'dev@spv.br',
-            'name' => 'Developer',
-            'password' => Hash::make('123456'),
-            'avatar' => 'assets/images/default-avatar.png',
-            'active' => true,
-            'is_student' => true,
-        ]);
-
-        User::create([
             'email' => 'admin@spv.br',
             'name' => 'Administrator',
             'password' => Hash::make('123456'),
@@ -31,6 +22,15 @@ class AdminUsersSeeder extends Seeder
             'is_student' => false,
         ]);
 
-        $this->command->info('Users dev and admin created');
+        User::create([
+            'email' => 'aluno@spv.br',
+            'name' => 'Aluno',
+            'password' => Hash::make('123456'),
+            'avatar' => 'assets/images/default-avatar.png',
+            'active' => true,
+            'is_student' => true,
+        ]);
+
+        $this->command->info('Users aluno and admin created');
     }
 }

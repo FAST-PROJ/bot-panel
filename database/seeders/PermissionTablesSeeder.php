@@ -14,8 +14,8 @@ class PermissionTablesSeeder extends Seeder
     {
         Permission::create([
             'permission_group_id' => '1',
-            'name' => 'root-dev',
-            'label' => 'Developer Permission',
+            'name' => 'root',
+            'label' => 'Root Permission',
         ]);
 
         Permission::create([

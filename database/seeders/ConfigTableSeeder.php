@@ -16,16 +16,16 @@ class ConfigTableSeeder extends Seeder
             'long_app_name' => 'Senac Professor Virtual',
             'short_app_name' => 'SPV',
             'app_slogan' => 'Seu professor virtual',
-            'captcha' => false,
+            'captcha' => true,
             'datasitekey' => '',
             'recaptcha_secret' => '',
             'image_login' => true,
             'path_image_login' => 'assets/images/logo.png',
             'size_image_login' => '40',
-            'title_login' => '<a href="#" ><b>App</b> Name</a>',
+            'title_login' => '<a href="#" ><b>Professor</b> Virtual</a>',
             'layout' => 'fixed',
             'skin' => 'blue',
-            'favicon' => 'assets/images/favicon.png',
+            'favicon' => 'assets/images/favicon.ico',
         ]);
     }
 }
