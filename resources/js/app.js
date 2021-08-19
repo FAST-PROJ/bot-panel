@@ -7,7 +7,7 @@
 
 require('./bootstrap');
 
-window.Vue = require('vue');
+import Vue from 'vue/dist/vue.js';
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
