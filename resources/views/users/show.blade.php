@@ -4,7 +4,7 @@
 
 @section('title', 'View User')
 
-@section('menu_pagina')
+@section('page_menu')
 
 	<li role="presentation">
 		<a href="{{ route('user') }}" class="link_menu_page">

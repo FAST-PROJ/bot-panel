@@ -4,7 +4,7 @@
 
 @section('title', 'Bot Professor Virtual')
 
-@section('menu_pagina')
+@section('page_menu')
 
 @section('content')
     <div class="box box-primary">

@@ -23,7 +23,7 @@
                     <div class="navbar-collapse collapse" id="navbar-collapse-2" aria-expanded="false" style="height: 1px;">
                         <ul class="nav navbar-nav">
 
-                            @yield('menu_pagina')
+                            @yield('page_menu')
 
                         </ul>
                     </div>

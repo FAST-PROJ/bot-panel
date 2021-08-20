@@ -4,22 +4,22 @@
 
 @section('title', 'Edit User')
 
-@section('menu_pagina')	
-		
+@section('page_menu')
+
 	<li role="presentation">
 		<a href="{{ route('user') }}" class="link_menu_page">
 			<i class="fa fa-user"></i> Users
-		</a>								
+		</a>
 	</li>
 
 @endsection
 
-@section('content')    
-    @if ($user->id != 1)     
+@section('content')
+    @if ($user->id != 1)
         <div class="box box-primary">
     		<div class="box-body">
     			<div class="row">
-    				<div class="col-md-12">	
+    				<div class="col-md-12">
     					 <form action="{{ route('user.update',$user->id) }}" method="post">
                             {{ csrf_field() }}
                             <input type="hidden" name="_method" value="put">
@@ -56,8 +56,8 @@
                                                         <option value="{{ $role->id}}" selected="true"> {{ $role->name}} </option>
                                                     @else
                                                         <option value="{{ $role->id}}"> {{ $role->name}} </option>
-                                                    @endif                                             
-                                                @endif                                             
+                                                    @endif
+                                                @endif
                                             @endforeach
                                         </select>
                                         @if($errors->has('roles'))
@@ -68,10 +68,10 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
-                                    <div class="form-group">                                    
+                                    <div class="form-group">
                                         <label>
                                             <input type="hidden" name="active" value="0">
-                                            <input type="checkbox" name="active" value="1" class="minimal" id="icheck" 
+                                            <input type="checkbox" name="active" value="1" class="minimal" id="icheck"
                                             @if($user->active == true)
                                                 checked
                                             @endif
@@ -79,7 +79,7 @@
                                             Active
                                         </label>
                                     </div>
-                                </div> 
+                                </div>
                                 <div class="col-lg-6">
                                    <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-fw fa-save"></i> Save</button>
                                 </div>
@@ -88,15 +88,15 @@
     				</div>
     			</div>
     		</div>
-    	</div>    
+    	</div>
     @endif
 
 @endsection
 
-@section('layout_js')    
+@section('layout_js')
 
-    <script> 
-        $(function(){             
+    <script>
+        $(function(){
             $('.select2').select2({
                 "language": {
                     "noResults": function(){
@@ -104,12 +104,12 @@
                     }
                 }
             });
-            
+
             $('#icheck').iCheck({
               checkboxClass: 'icheckbox_square-blue',
               radioClass: 'iradio_square-blue'
             });
-        }); 
+        });
 
     </script>
 

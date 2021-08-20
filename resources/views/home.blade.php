@@ -4,7 +4,7 @@
 
 @section('title', 'Dashboard ')
 
-@section('menu_pagina')
+@section('page_menu')
 
 @section('content')
 
