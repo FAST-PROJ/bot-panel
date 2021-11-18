@@ -28,11 +28,11 @@
                 <form  method="POST" action="{{ route('login') }}">
                     @csrf
                     <div class="form-group has-feedback">
-                        <input id="email" type="text" class="form-control" placeholder="Usuário" name="email" value="{{ old('email') }}" autofocus required="" AUTOCOMPLETE='off'>
+                        <input id="email" type="text" class="form-control" placeholder="aluno@spv.br" name="email" value="{{ old('email') }}" autofocus required="" AUTOCOMPLETE='off'>
                         <span class="glyphicon glyphicon-user form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback">
-                        <input id="password" type="password" class="form-control" placeholder="Senha" name="password" required="" AUTOCOMPLETE='off'>
+                        <input id="password" type="password" class="form-control" placeholder="123456" name="password" required="" AUTOCOMPLETE='off'>
                         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                         @if ($errors->has('email'))
                             <br/>

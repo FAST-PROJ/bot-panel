@@ -8,4 +8,4 @@ $botman->hears('Hi', function ($bot) {
     $bot->reply('Hello!');
 });
 
-$botman->hears('@bot', VirtualTeacherController::class.'@startConversation');
+$botman->hears('@prof', VirtualTeacherController::class.'@startConversation');
