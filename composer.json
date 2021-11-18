@@ -58,10 +58,6 @@
         "post-install-cmd": [
             "@php artisan clear-compiled",
             "chmod -R 777 public/"
-        ],
-        "post-update-cmd": [
-            "@php artisan optimize",
-            "@php artisan migrate:fresh --seed"
         ]
     },
     "extra": {
