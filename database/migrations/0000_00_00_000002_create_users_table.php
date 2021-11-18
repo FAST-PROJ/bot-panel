@@ -13,7 +13,7 @@ class CreateUsersTable extends Migration
     {
         Schema::defaultStringLength(191);
         Schema::create('users', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->string('name')->default('Aluno não identificado');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();

@@ -57,3 +57,7 @@ Route::group(['namespace' => 'App\Http\Controllers\User'], function () {
 // Bot Routes
 Route::match(['get', 'post'], '/botman', [VirtualTeacherController::class, 'handle']);
 Route::get('/bot/tinker', [VirtualTeacherController::class, 'tinker'])->name('bot.tinker');
+
+// push notifications
+Route::get('/push', 'PushController@push')->name('push');
+Route::post('/push', 'PushController@store');

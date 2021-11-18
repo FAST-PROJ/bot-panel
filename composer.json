@@ -6,13 +6,14 @@
     "type": "project",
     "require": {
         "php": "^7.3|^8.0",
-        "laravel/framework": "7.30.4",
         "botman/botman": "2.6.1",
         "botman/driver-web": "1.5.1",
         "botman/tinker": "1.2.0",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "laravel-notification-channels/webpush": "^5.0.2",
+        "laravel/framework": "7.30.4",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^2.5.0"
     },
@@ -57,7 +58,8 @@
         ],
         "post-install-cmd": [
             "@php artisan clear-compiled",
-            "chmod -R 777 public/"
+            "chmod -R 777 public/",
+            "@web-push generate-vapid-keys"
         ]
     },
     "extra": {
