@@ -2,18 +2,14 @@
 
 namespace App\Conversations\VirtualTeacher;
 
+use App\Models\Question as QuestionModel;
 use BotMan\BotMan\Messages\Conversations\Conversation;
 use BotMan\BotMan\Messages\Incoming\Answer;
-use BotMan\BotMan\Messages\Outgoing\Actions\Button;
 use BotMan\BotMan\Messages\Outgoing\Question;
-use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Auth;
 
 class TeacherConversation extends Conversation
 {
-    /**
-     * First question.
-     */
     public function askReason()
     {
         $user = Auth::user();
@@ -21,28 +17,25 @@ class TeacherConversation extends Conversation
         $question = Question::create("Olá {$user->name}, em que posso ajudar?")
             ->fallback('Não é possível fazer perguntas')
             ->callbackId('ask_reason');
-        // ->addButtons([
-        //     Button::create('Conte uma piada')->value('joke'),
-        //     Button::create('Me dê uma quote extravagante')->value('quote'),
-        // ]);
 
         return $this->ask($question, function (Answer $answer) {
-            if ($answer->isInteractiveMessageReply()) {
-                if ('joke' === $answer->getValue()) {
-                    $joke = json_decode(file_get_contents('http://api.icndb.com/jokes/random'));
-                    $this->say($joke->value->joke);
-                } else {
-                    $this->say(Inspiring::quote());
-                }
-            }
+            $text = $answer->getText();
+            $this->save($text);
+            $this->say('Buscando respostas para sua pergunta. Só um momento.');
         });
     }
 
-    /**
-     * Start the conversation.
-     */
     public function run()
     {
         $this->askReason();
+    }
+
+    private function save($text)
+    {
+        QuestionModel::create([
+            'user_id' => Auth::user()->id,
+            'question' => $text,
+            'status' => false,
+        ]);
     }
 }
