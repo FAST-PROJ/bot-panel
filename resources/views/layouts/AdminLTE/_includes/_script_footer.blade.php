@@ -34,12 +34,12 @@
         <!-- Select2 -->
 		<script src="{{ asset('assets/adminlte/bower_components/select2/dist/js/select2.full.min.js') }}"></script>
 		<!-- Mask -->
-        <script src="{{ asset('js/app.js') }}"></script>
+        <script src="{{ mix('js/app.js') }}"></script>
 
 		<script type="text/javascript">
-	      $(document).ready( function() {
-	        $('#flash_message').delay(3000).fadeOut();
-	      });
+            $(document).ready( function() {
+                $('#flash_message').delay(3000).fadeOut();
+            });
 	    </script>
 
 		@yield('layout_js')

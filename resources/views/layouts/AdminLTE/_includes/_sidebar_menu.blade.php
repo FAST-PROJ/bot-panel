@@ -9,17 +9,21 @@
 				<a href="{{ route('home') }}" title="Dashboard"><i class="fa fa-dashboard"></i> <span> DASHBOARD</span></a>
 			</li>
 
+            <li class="{{ Request::segment(1) === 'profile' ? 'active' : null }}">
+                <a href="{{ route('profile') }}" title="Profile"><i class="fa fa-user"></i> <span> MEU PERFIL</span></a>
+            </li>
+
             @if (Auth::user()?->isStudent())
                 <li class="{{ Request::segment(1) === 'bot' ? 'active' : null }}">
                     <a href="{{ route('bot.tinker') }}" title="Bot Professor Virtual"><i class="fa fa-android"></i> <span> PROFESSOR VIRTUAL</span></a>
                 </li>
             @endif
 
-			@if(Request::segment(1) === 'profile')
-                <li class="{{ Request::segment(1) === 'profile' ? 'active' : null }}">
-                    <a href="{{ route('profile') }}" title="Profile"><i class="fa fa-user"></i> <span> MEU PERFIL</span></a>
+            @if (Auth::user()?->isStudent())
+                <li class="{{ Request::segment(1) === 'perguntas' ? 'active' : null }}">
+                    <a href="{{ route('user.answers') }}" title="Minhas Perguntas"><i class="fa fa-question-circle"></i> <span> MINHAS PERGUNTAS</span></a>
                 </li>
-			@endif
+            @endif
 
             @if (Auth::user()?->can('root', ''))
                 <li class="treeview

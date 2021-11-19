@@ -4,6 +4,10 @@
 <title>
         {!! \App\Models\Config::find(1)->short_app_name !!} | @yield('title')
 </title>
+<!-- GCM Manifest (optional if VAPID is used) -->
+@if (config('webpush.gcm.sender_id'))
+    <link rel="manifest" href="/manifest.json">
+@endif
 <link rel="shortcut icon" href="{{ asset(\App\Models\Config::find(1)->favicon) }}" type="image/x-icon"/>
 <!-- Tell the browser to be responsive to screen width -->
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -33,8 +37,19 @@
 <!-- Google Font -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 <!-- CSS Custom -->
-<!-- <link rel="stylesheet" href="{{ asset('css/app.css') }}"> -->
+<link rel="stylesheet" href="{{ mix('css/app.css') }}">
 <!-- jQuery 3 -->
 <script src="{{ asset('assets/adminlte/bower_components/jquery/dist/jquery.min.js') }}"></script>
+
+<script>
+    window.Laravel = {!! json_encode([
+        'user' => Auth::user(),
+        'vapidPublicKey' => config('webpush.vapid.public_key'),
+        'pusher' => [
+            'key' => config('broadcasting.connections.pusher.key'),
+            'cluster' => config('broadcasting.connections.pusher.options.cluster'),
+        ],
+    ]) !!};
+</script>
 
 @yield('layout_css')
