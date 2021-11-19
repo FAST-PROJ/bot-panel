@@ -42,3 +42,17 @@ senha: 123456
 usuário: dev@spv.br
 senha: 123456
 ```
+
+## Endpoints
+
+Salvar uma resposta para o aluno e criar uma notificação
+```php
+URI: '/api/answer'
+METHOD: POST
+HEADERS: []
+BODY: {
+    "id": 1, // ID do aluno
+    "question" : "Pergunta Feita pelo Aluno",
+    "answer": "Resposta criada pela IA"
+}
+```
