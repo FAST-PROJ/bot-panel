@@ -59,7 +59,5 @@
         </div>
 
         @include('layouts.AdminLTE._includes._script_footer')
-
-        <script src="{{ asset('js/enable-push.js') }}" defer></script>
     </body>
 </html>

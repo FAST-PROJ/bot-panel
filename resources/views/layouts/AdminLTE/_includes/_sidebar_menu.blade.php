@@ -39,6 +39,11 @@
                         </span>
                     </a>
                     <ul class="treeview-menu">
+                        <li class="{{ Request::segment(1) === 'file' && Request::segment(2) === null ? 'active' : null }}">
+                            <a href="{{ route('file.index') }}" title="Adicionar Arquivo">
+                                <i class="fa fa-file"></i> <span> ADICIONAR ARQUIVO</span>
+                            </a>
+                        </li>
                         <li class="{{ Request::segment(1) === 'config' && Request::segment(2) === null ? 'active' : null }}">
                             <a href="{{ route('config') }}" title="App Config">
                                 <i class="fa fa-gear"></i> <span> CONFIGURAÇÕES DO APP</span>

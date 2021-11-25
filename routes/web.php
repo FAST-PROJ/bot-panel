@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ConfigController;
 use App\Http\Controllers\Error\ErrorController;
+use App\Http\Controllers\FileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\Profile\ProfileController;
@@ -17,6 +18,9 @@ Auth::routes();
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::get('file/upload', [FileController::class, 'index'])->name('file.index');
+Route::post('file/upload', [FileController::class, 'upload'])->name('file.upload');
 
 Route::get('/config', [ConfigController::class, 'index'])->name('config');
 Route::put('/config/update/{id}', [ConfigController::class, 'update'])->name('config.update');

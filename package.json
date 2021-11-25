@@ -23,9 +23,10 @@
         "vue-timeago": "^3.4.4"
     },
     "dependencies": {
-        "botman-tinker": "^0.0.1",
         "@babel/eslint-parser": "^7.12.1",
+        "botman-tinker": "^0.0.1",
         "cross-env": "^7.0.3",
+        "dropzone": "^6.0.0-beta.1",
         "eslint": "^7.17.0",
         "eslint-config-standard": "^16.0.2",
         "eslint-plugin-import": "^2.22.1",
