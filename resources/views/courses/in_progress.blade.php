@@ -5,7 +5,6 @@
             Meus Cursos em Andamento
         </h3>
     </div>
-
     <div class="box-body">
         <div class="row">
             @foreach ($content as $lesson)
@@ -31,6 +30,5 @@
                 </div>
             @endforeach
         </div>
-
     </div>
 </div>
