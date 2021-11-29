@@ -4,18 +4,12 @@
 
 @section('title', 'Bot Professor Virtual')
 
-@section('page_menu')
-
 @section('content')
     <div class="box box-primary">
         <div class="box-body">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="chatbot-container">
-                        <div class="chatbot-content" id="app">
-                            <botman-tinker api-endpoint="/botman"></botman-tinker>
-                        </div>
-                    </div>
+            <div class="chatbot-container">
+                <div class="chatbot-content" id="chat-app">
+                    <botman-tinker api-endpoint="/botman"></botman-tinker>
                 </div>
             </div>
         </div>
@@ -34,9 +28,10 @@
         text-align: center;
     }
 
-    #app {
+    #chat-app {
         position: absolute;
-        bottom: 10px;
+        bottom: 20px;
+        width: 100%;
     }
 
     .ChatAttachment + label, input.ChatInput {
@@ -49,5 +44,11 @@
 
     .chatbot-container {
         height: 75vh !important;
+    }
+
+    .ChatLog {
+        height: 70vh;
+        overflow-y: auto;
+        max-width: 100% !important;
     }
 </style>

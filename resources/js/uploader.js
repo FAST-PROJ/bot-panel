@@ -43,3 +43,20 @@ $('.file-upload-wrap').bind('dragover', function () {
 $('.file-upload-wrap').bind('dragleave', function () {
     $('.file-upload-wrap').removeClass('file-dropping');
 });
+
+(function($) {
+    $.fn.onEnter = function(func) {
+        this.bind('keydown', function(e) {
+            if (e.keyCode == 13) func.apply(this, [e]);
+        });
+        return this;
+     };
+})(jQuery);
+
+$( function () {
+    $(".ChatInput").onEnter( function() {
+        setTimeout(() => {
+            $('.ChatLog').scrollTop(1000);
+        }, 500);
+    });
+});

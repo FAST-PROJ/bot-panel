@@ -2690,6 +2690,23 @@ $('.file-upload-wrap').bind('dragleave', function () {
   $('.file-upload-wrap').removeClass('file-dropping');
 });
 
+(function ($) {
+  $.fn.onEnter = function (func) {
+    this.bind('keydown', function (e) {
+      if (e.keyCode == 13) func.apply(this, [e]);
+    });
+    return this;
+  };
+})(jQuery);
+
+$(function () {
+  $(".ChatInput").onEnter(function () {
+    setTimeout(function () {
+      $('.ChatLog').scrollTop(1000);
+    }, 500);
+  });
+});
+
 /***/ }),
 
 /***/ "./node_modules/bootstrap-sass/assets/javascripts/bootstrap.js":
