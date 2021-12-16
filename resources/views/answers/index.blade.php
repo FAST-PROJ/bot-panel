@@ -16,6 +16,7 @@
 								<tr>
 									<th>Pergunta</th>
 									<th>Resposta</th>
+									<th>Acurácia</th>
 									<th class="text-center">Data Criação</th>
 									<th class="text-center">Ações</th>
 								</tr>
@@ -25,6 +26,7 @@
                                     <tr>
                                         <td>{{ $answer->question }}</td>
                                         <td>{{ $answer->answer }}</td>
+                                        <td>{{ $answer->score }}</td>
                                         <td class="text-center">{{ $answer->created_at->format('d/m/Y H:i') }}</td>
 
                                         <td class="text-center">

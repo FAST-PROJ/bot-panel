@@ -22,6 +22,38 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::post('/notifications', function (Request $request) {
+    try {
+        $userId = $request->input('id');
+
+        $answerID = Answer::create([
+            'user_id' => $userId,
+            'score' => $request->input('score'),
+            'question' => $request->input('question'),
+            'answer' => $request->input('answer'),
+        ]);
+
+        $user = User::find($userId);
+        $user->notify(new BotNotification($user, $answerID));
+
+        return Response::json(
+            [
+                'message' => 'Resposta salva com sucesso',
+                'status' => true,
+            ],
+            200,
+        );
+    } catch (\Throwable $e) {
+        return Response::json(
+            [
+                'message' => 'Erro ao salvar a resposta',
+                'status' => false,
+            ],
+            400,
+        );
+    }
+});
+
 Route::post('/answer', function (Request $request) {
     try {
         $userId = $request->input('id');

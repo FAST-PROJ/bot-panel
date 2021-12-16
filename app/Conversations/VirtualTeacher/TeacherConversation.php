@@ -2,10 +2,11 @@
 
 namespace App\Conversations\VirtualTeacher;
 
-use App\Models\Question as QuestionModel;
 use BotMan\BotMan\Messages\Conversations\Conversation;
 use BotMan\BotMan\Messages\Incoming\Answer;
 use BotMan\BotMan\Messages\Outgoing\Question;
+use GuzzleHttp\Client;
+use GuzzleHttp\RequestOptions;
 use Illuminate\Support\Facades\Auth;
 
 class TeacherConversation extends Conversation
@@ -20,8 +21,8 @@ class TeacherConversation extends Conversation
 
         return $this->ask($question, function (Answer $answer) {
             $text = $answer->getText();
-            $this->save($text);
             $this->say('Buscando respostas para sua pergunta. Só um momento.');
+            $this->save($text);
         });
     }
 
@@ -32,10 +33,14 @@ class TeacherConversation extends Conversation
 
     private function save($text)
     {
-        QuestionModel::create([
-            'user_id' => Auth::user()->id,
-            'question' => $text,
-            'status' => false,
-        ]);
+        (new Client())->post(
+            'https://spv-etl.herokuapp.com/recebePergunta',
+            [
+                RequestOptions::JSON => [
+                    'id' => Auth::user()->id,
+                    'question' => $text,
+                ],
+            ]
+        );
     }
 }

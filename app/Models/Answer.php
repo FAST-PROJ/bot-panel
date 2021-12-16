@@ -17,6 +17,7 @@ class Answer extends Model
         'user_id',
         'question',
         'answer',
+        'score',
     ];
 
     /**

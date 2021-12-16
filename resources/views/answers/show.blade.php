@@ -12,7 +12,9 @@
                     <div class="col-lg-2">
                         <h4><b>Pergunta: </b></h4>
                         <span>{{ $answer->question }}</span>
-
+                        <br><br>
+                        <h4><b>Acurácia: </b></h4>
+                        <span>{{ $answer->score }}</span>
                     </div>
                     <div class="col-lg-8">
                         <div class="attachment">
