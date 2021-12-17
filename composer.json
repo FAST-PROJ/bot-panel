@@ -5,7 +5,7 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": "^7.3|^8.0",
+        "php": "8.0",
         "botman/botman": "2.6.1",
         "botman/driver-web": "1.5.1",
         "botman/tinker": "1.2.0",
